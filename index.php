@@ -1,13 +1,11 @@
 <?php
 
-namespace App;
-
 use App\Services\UserService;
 use App\Controllers\UserController;
 
-require_once 'config/clear_cache.php';
-
 session_start();
+
+require 'vendor/autoload.php';
 
 try {
     $method = $_SERVER['REQUEST_METHOD'];
@@ -18,6 +16,11 @@ try {
             'name'          => 'Fulano de Tal',
             'email'         => 'fulano@example.com',
             'password'      =>  password_hash('abcdef', PASSWORD_DEFAULT)
+        ],
+        [
+            'name'          => 'Fulano de Tal',
+            'email'         => 'fulano@example.com',
+            'password'      =>  password_hash('ddddd', PASSWORD_DEFAULT)
         ],
         [
             'name'          => 'Ciclano da Silva',
@@ -40,8 +43,10 @@ try {
             break;
         case 'POST /register':
             $userController->register();
+            break;
         case 'GET /test':
             $userController->test();
+            break;
         default:
             http_response_code(404);
             echo 'Página não encontrada';

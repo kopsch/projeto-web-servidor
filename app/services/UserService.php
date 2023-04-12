@@ -11,11 +11,14 @@ class UserService {
         $this->users = $users;
     }
 
-    public function authenticate(string $email, string $password): ?User {
+    public function authenticate(string $email, string $password) {
         // Busca o usuário pelo e-mail
-        $user = array_filter($this->users, function ($user) use ($email) {
-            return $user['email'] === $email;
-        });
+        foreach ($this->users as $foundUser) {
+            if ($foundUser['email'] === $email) {
+                $user = $foundUser;
+                break;
+            }
+        }
 
         // Verifica se o usuário foi encontrado
         if (empty($user)) {
@@ -43,11 +46,7 @@ class UserService {
         }
 
         // Cria um novo usuário
-        $user = new User(
-            $name,
-            $email,
-            password_hash($password, PASSWORD_DEFAULT)
-        );
+        $user = array("name" => $name, "email" => $email, "password" => password_hash($password, PASSWORD_DEFAULT));
 
         // Adiciona o novo usuário ao array
         $this->users[] = $user;

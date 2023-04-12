@@ -3,8 +3,8 @@
 namespace App\Models;
 
 class User {
-    private $name;
-    private $email;
+    public $name;
+    public $email;
     private $password;
 
     public function __construct(string $name, string $email, string $password) {

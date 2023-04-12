@@ -28,15 +28,14 @@ class UserController
             echo json_encode($user);
         } else {
             http_response_code(401);
-            echo json_encode(array('message' => 'Usuário ou senha inválidos'));
+            echo json_encode(array('message' => 'Usuario ou senha invalidos'));
         }
     }
 
     public function logout()
     {
-        session_start();
+        echo json_encode($_SESSION['user']);
         session_destroy();
-        header('Location: login.php');
         exit;
     }
 
