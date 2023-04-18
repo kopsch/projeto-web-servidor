@@ -36,6 +36,11 @@ class UserService {
         return $user;
     }
 
+    public function getUser()
+    {
+        return json_encode($_SESSION['user']);
+    }
+
     public function create(string $name, string $email, string $password)
     {
         // Verifica se o e-mail já está sendo usado

@@ -15,21 +15,31 @@ class UserController
 
     public function login()
     {
-        $data = json_decode(file_get_contents("php://input"), true);
+        if(isset($_SESSION['user'])) {
+            $data = json_decode(file_get_contents("php://input"), true);
 
-        $email = $data['email'];
-        $password = $data['password'];
-
-        $user = $this->userService->authenticate($email, $password);
-
-        if ($user) {
-            $_SESSION['user'] = $user;
-            http_response_code(200);
-            echo json_encode($user);
+            $email = $data['email'];
+            $password = $data['password'];
+    
+            $user = $this->userService->authenticate($email, $password);
+    
+            if ($user) {
+                $_SESSION['user'] = $user;
+                http_response_code(200);
+                echo json_encode($user);
+            } else {
+                http_response_code(401);
+                echo json_encode(array('message' => 'Usuario ou senha invalidos'));
+            }
         } else {
-            http_response_code(401);
-            echo json_encode(array('message' => 'Usuario ou senha invalidos'));
+            http_response_code(422);
+            echo json_encode(array('message' => 'Usuario já logado'));
         }
+    }
+
+    public function getUser()
+    {
+        echo $this->userService->getUser();
     }
 
     public function logout()
