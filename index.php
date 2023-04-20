@@ -12,9 +12,6 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-W
 define('BASE_URL', '/projeto-web-servidor/');
 session_start();
 
-$method = $_SERVER['REQUEST_METHOD'];
-$path = $_SERVER['PATH_INFO'] ?? '/';
-
 $userService = new UserService();
 $userController = new UserController($userService);
 
