@@ -24,7 +24,7 @@ class UserController
         $_SESSION['user'] = $user;
         header('Location: /projeto-web-servidor/home');
     } else {
-        echo('Falhou');
+        $loginError = 'Usuário ou senha inválidos';
     }
 
     }

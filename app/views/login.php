@@ -96,6 +96,12 @@
 
       <a href="register">Cadastre-se</a>
     </form>
+    <?php
+    // Exibe a mensagem de erro (se houver)
+    if (isset($loginError)) {
+      echo '<p>' . $loginError . '</p>';
+    }
+    ?>
   </div>
 
 </body>
