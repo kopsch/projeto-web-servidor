@@ -1,7 +1,7 @@
 #Integrantes:
 1. Gustavo Vicente Ozorio
 2. Pedro Kopsch
-3. Matheus Vieira dos Santos    
+3. Matheus José Vieira dos Santos    
 
 #Atividades desenvolvildas:
     Gustavo: desenvolvimento da parte php mais relacionados as views junto com html/css e testar as funcionalidades em outro ambiente, participação da  documetação do código  .

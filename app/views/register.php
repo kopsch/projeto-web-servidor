@@ -81,11 +81,25 @@
       color: white;
       text-align: center;
     }
+
+    .back {
+        background-color: #000;
+        color: #fff;
+        border-radius: 100%;
+        padding: 10px;
+        font-size: 10px;
+        border: none;
+        cursor: pointer;
+    }
+
     </style>
 </head>
 
 <body>
     <div class="container">
+        <a href="/projeto-web-servidor">
+            <button class="back">⇽</button>
+        </a>
         <form action="/projeto-web-servidor/api/register" method="POST">
             <h2>Cadastro</h2>
             <label for="name">Usuario</label>
