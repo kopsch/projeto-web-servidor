@@ -12,7 +12,8 @@
         }
 
         body {
-            background-color: #f5f5f5;
+            background: rgb(159,103,255);
+            background: radial-gradient(circle, rgba(159,103,255,1) 0%, rgba(255,187,252,1) 100%);
             font-family: Arial, sans-serif;
         }
 
@@ -41,9 +42,8 @@
             margin-bottom: 5px;
         }
 
-        input[type="email"],
-        input[type="password"],
-        input[type="username"] {
+        input
+         {
             border: none;
             border-radius: 3px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -65,7 +65,7 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #ff7b00;
+            background-color: #ffcbdb;
         }
     </style>
 </head>

@@ -12,7 +12,8 @@
         }
 
         body {
-            background-color: #f5f5f5;
+            background: rgb(159,103,255);
+            background: radial-gradient(circle, rgba(159,103,255,1) 0%, rgba(255,187,252,1) 100%);
             font-family: Arial, sans-serif;
         }
 
