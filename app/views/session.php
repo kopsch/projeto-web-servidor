@@ -12,7 +12,8 @@
         }
 
         body {
-            background-color: #f5f5f5;
+            background: rgb(159,103,255);
+            background: radial-gradient(circle, rgba(159,103,255,1) 0%, rgba(255,187,252,1) 100%);
             font-family: Arial, sans-serif;
         }
 
@@ -39,6 +40,26 @@
             background-color: #8c00ff;
 
         }
+
+        button {
+        background-color: rgb(0, 0, 0);
+        border: none;
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 10px;
+        padding: 10px 15px;
+        transition: background-color 0.2s ease-in-out;
+    }
+    button:hover {
+            background-color: #ffcbdb;
+        }
+
+    a{
+        text-decoration:none;
+    }
     </style>
 </head>
 
