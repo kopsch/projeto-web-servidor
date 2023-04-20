@@ -41,14 +41,25 @@
 
         }
 
-        input[type="email"],
-        input[type="password"],
-        input [type="username"] {
+        input {
             border: none;
             border-radius: 3px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
             margin-bottom: 10px;
             padding: 10px;
+        }
+
+        button {
+            background-color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 3px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+            padding: 10px 15px;
+            transition: background-color 0.2s ease-in-out;
         }
     </style>
 </head>

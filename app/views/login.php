@@ -9,10 +9,11 @@
       box-sizing: border-box;
     }
 
-      body { background: rgb(159,103,255);
-            background: radial-gradient(circle, rgba(159,103,255,1) 0%, rgba(255,187,252,1) 100%);
-             font-family: Arial, sans-serif;
-     
+    body {
+      background: rgb(159, 103, 255);
+      background: radial-gradient(circle, rgba(159, 103, 255, 1) 0%, rgba(255, 187, 252, 1) 100%);
+      font-family: Arial, sans-serif;
+
     }
 
     .container {
@@ -62,7 +63,7 @@
       transition: background-color 0.2s ease-in-out;
     }
 
-     
+
 
     button {
       background-color: rgb(0, 0, 0);
@@ -76,19 +77,35 @@
       padding: 10px 15px;
       transition: background-color 0.2s ease-in-out;
     }
-     .register{
-      margin-top : 15px;
-      text-decoration:none;
+
+    .register {
+      margin-top: 15px;
+      text-decoration: none;
       color: black;
-     }
+    }
 
-     button:hover {
-            background-color: #ffcbdb;
-        }
+    button:hover {
+      background-color: #ffcbdb;
+    }
 
-        .register:hover{
-          color: #ffcbdb;
-        }
+    .register:hover {
+      color: #ffcbdb;
+    }
+
+    .error {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 250px;
+      height: 40px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: red;
+      color: white;
+      text-align: center;
+    }
   </style>
 </head>
 
@@ -106,12 +123,11 @@
 
       <button type="submit">Entrar</button>
 
-      <a class ="register" href="register">Cadastre-se</a>
+      <a class="register" href="register">Cadastre-se</a>
     </form>
     <?php
-    // Exibe a mensagem de erro (se houver)
     if (isset($loginError)) {
-      echo '<p>' . $loginError . '</p>';
+      echo '<p class="error">' . $loginError . '</p>';
     }
     ?>
   </div>

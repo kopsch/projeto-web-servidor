@@ -12,8 +12,8 @@
         }
 
         body {
-            background: rgb(159,103,255);
-            background: radial-gradient(circle, rgba(159,103,255,1) 0%, rgba(255,187,252,1) 100%);
+            background: rgb(159, 103, 255);
+            background: radial-gradient(circle, rgba(159, 103, 255, 1) 0%, rgba(255, 187, 252, 1) 100%);
             font-family: Arial, sans-serif;
         }
 
@@ -42,8 +42,7 @@
             margin-bottom: 5px;
         }
 
-        input
-         {
+        input {
             border: none;
             border-radius: 3px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -67,6 +66,21 @@
         input[type="submit"]:hover {
             background-color: #ffcbdb;
         }
+
+        .error {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 250px;
+      height: 40px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: red;
+      color: white;
+      text-align: center;
+    }
     </style>
 </head>
 
@@ -86,6 +100,11 @@
 
             <input type="submit" value="Cadastrar">
         </form>
+        <?php
+        if (isset($registerError)) {
+            echo '<p class="error">' . $registerError . '</p>';
+        }
+        ?>
     </div>
 </body>
 

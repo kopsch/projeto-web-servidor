@@ -15,18 +15,19 @@ class UserController
 
     public function login()
     {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-    $user = $this->userService->authenticate($email, $password);
+        $user = $this->userService->authenticate($email, $password);
 
-    if ($user) {
-        $_SESSION['user'] = $user;
-        header('Location: /projeto-web-servidor/home');
-    } else {
-        $loginError = 'Usuário ou senha inválidos';
-    }
+        if ($user) {
+            $_SESSION['user'] = $user;
+            header('Location: /projeto-web-servidor/home');
+        } else {
+            $loginError = 'Usuário ou senha inválidos';
+        }
 
+        include 'app/views/login.php';
     }
 
     public function logout()
@@ -47,8 +48,10 @@ class UserController
         if ($user !== false) {
             header('Location: /projeto-web-servidor');
         } else {
-            echo 'Falhou';
+            $registerError = 'Email já cadastrado';
         }
+
+        include 'app/views/register.php';
     }
 
     public function edit(): void
