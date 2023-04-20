@@ -6,7 +6,7 @@ use App\Services\UserService;
 
 class UserController
 {
-    private $userService;
+    private UserService $userService;
 
     public function __construct(UserService $userService)
     {
@@ -15,7 +15,7 @@ class UserController
 
     public function login()
     {
-        if(isset($_SESSION['user'])) {
+        if(!isset($_SESSION['user'])) {
             $data = json_decode(file_get_contents("php://input"), true);
 
             $email = $data['email'];
@@ -40,6 +40,11 @@ class UserController
     public function getUser()
     {
         echo $this->userService->getUser();
+    }
+
+    public function getUsers()
+    {
+        echo $this->userService->getUsers();
     }
 
     public function logout()

@@ -3,58 +3,34 @@
 use App\Services\UserService;
 use App\Controllers\UserController;
 
-session_start();
-
 require 'vendor/autoload.php';
 
-try {
+define('BASE_URL', '/projeto-web-servidor/');
+session_start();
+
     $method = $_SERVER['REQUEST_METHOD'];
     $path = $_SERVER['PATH_INFO'] ?? '/';
 
-    $users = [
-        [
-            'name'          => 'Fulano de Tal',
-            'email'         => 'fulano@example.com',
-            'password'      =>  password_hash('abcdef', PASSWORD_DEFAULT)
-        ],
-        [
-            'name'          => 'Fulano de Tal',
-            'email'         => 'fulano@example.com',
-            'password'      =>  password_hash('ddddd', PASSWORD_DEFAULT)
-        ],
-        [
-            'name'          => 'Ciclano da Silva',
-            'email'         => 'ciclano@example.com',
-            'password'      => password_hash('123456', PASSWORD_DEFAULT)
-        ]
-    ];
-
-    $userService = new UserService($users);
+    $userService = new UserService();
     $userController = new UserController($userService);
 
-    $route = isset($_GET['route']) ? $_GET['route'] : '';
-
-    switch ("$method $path") {
-        case 'POST /login':
-            $userController->login();
-            break;
-        case 'GET /logout':
-            $userController->logout();
-            break;
-        case 'POST /register':
-            $userController->register();
-            break;
-        case 'GET /test':
-            $userController->test();
-            break;
-        default:
-            http_response_code(404);
-            echo 'Página não encontrada';
-            break;
+    if ($_SERVER['REQUEST_URI'] == BASE_URL) {
+        echo 'tela inicial';
+    } elseif ($_SERVER['REQUEST_URI'] == BASE_URL . 'login' && $_SERVER['REQUEST_METHOD'] == 'POST') {
+        $userController->login();
+    } elseif ($_SERVER['REQUEST_URI'] == BASE_URL . 'logout' && $_SERVER['REQUEST_METHOD'] == 'GET') {
+        $userController->logout();
+    } elseif ($_SERVER['REQUEST_URI'] == BASE_URL . 'register' && $_SERVER['REQUEST_METHOD'] == 'POST') {
+        $userController->register();
+    } elseif ($_SERVER['REQUEST_URI'] == BASE_URL . 'test' && $_SERVER['REQUEST_METHOD'] == 'GET') {
+        $userController->test();
+    } elseif ($_SERVER['REQUEST_URI'] == BASE_URL . 'me' && $_SERVER['REQUEST_METHOD'] == 'GET') {
+        $userController->getUser();
+    } elseif ($_SERVER['REQUEST_URI'] == BASE_URL . 'users' && $_SERVER['REQUEST_METHOD'] == 'GET') {
+        $userController->getUsers();
+    } else {
+        header('HTTP/1.0 404 Not Found');
+        echo 'Página não encontrada';
     }
-} catch (\Exception $e) {
-    http_response_code(500);
-    echo 'Erro interno do servidor: ' . $e->getMessage();
-}
 
 ?>
