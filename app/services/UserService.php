@@ -35,14 +35,27 @@ class UserService {
         return $user;
     }
 
-    public function getUser()
-    {
-        return json_encode($_SESSION['user']);
-    }
+    public function edit(string $name, string $password) {
+        $user = $_SESSION['user'];
+        $email = $user->getEmail();
 
-    public function getUsers()
-    {
-        return json_encode($this->users);
+        foreach ($this->users as $index => $foundUser) {
+            if ($foundUser['email'] === $email) {
+                $this->users[$index]["name"] = $name;
+                $this->users[$index]["password"] = $password;
+                
+                $this->saveUsers();
+
+                $updatedUser = $this->users[$index];
+                break;
+            }
+        }
+
+        $this->loadUsers();
+
+        $updatedUser = new User($updatedUser['name'], $updatedUser['email'], $updatedUser['password']);
+
+        return $updatedUser;
     }
 
     public function create(string $name, string $email, string $password)
