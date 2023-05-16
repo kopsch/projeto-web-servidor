@@ -5,7 +5,9 @@
         "vlucas/phpdotenv": "^5.5",
         "robmorgan/phinx": "^0.13.4",
         "ramsey/uuid": "^4.2",
-        "firebase/php-jwt": "^6.4"
+        "firebase/php-jwt": "^6.4",
+        "league/plates": "^3.5",
+        "pecee/simple-router": "5.3.0.5"
     },
     "autoload": {
         "psr-4": {
