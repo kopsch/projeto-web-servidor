@@ -13,10 +13,11 @@ class User
     private string $name;
     private string $email;
     private string $passwordToHash;
-    private static PDO $connection = (new DatabaseConnector())->getConnection();
+    private static $connection;
 
     public function __construct(string $username, string $name, string $email, string $passwordToHash)
     {
+        self::$connection = (new DatabaseConnector())->getConnection();
         $this->username = $username;
         $this->name = $name;
         $this->email = $email;
@@ -84,6 +85,7 @@ class User
             $statement = self::$connection->prepare(($statement));
             $statement->execute(['username' => $this->username, 'email' => $this->email]);
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            var_dump($statement->execute(['username' => $this->username, 'email' => $this->email]));
 
             if ($result) {
                 return true;

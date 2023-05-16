@@ -11,7 +11,7 @@ class UserService
     {
     }
 
-    public function store($data): bool
+    public function store(array $data)
     {
         $user = new User($data['username'], $data['name'], $data['email'], $data['password']);
 
@@ -19,14 +19,16 @@ class UserService
             return false;
         }
 
-        $user->store();
-
         return true;
     }
 
-    public function getByUsername($data) {
-        $user = User::getByUsername($data['username']);
+    public function getByUsername(string $username) {
+        return User::getByUsername($username);
+    }
 
-        return $user;
+    public function authenticate(array $data) {
+        $user =$this->getByUsername($data['username']);
+
+        var_dump($user);
     }
 }
