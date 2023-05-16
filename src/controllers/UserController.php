@@ -1,6 +1,7 @@
 <?php
 
 namespace Src\Controllers;
+
 use Src\Services\UserService;
 
 class UserController
@@ -15,19 +16,28 @@ class UserController
     public function store()
     {
         $requestBody = json_decode(file_get_contents("php://input"), true);
-        $response = $this->userService->store($requestBody);
+
+        if (!$requestBody['password'] or !$requestBody['username'] or !$requestBody['name'] or !$requestBody['email']) {
+            throw new \Exception("Todos os campos são obrigatórios", 400);
+        }
+
+        $this->userService->store($requestBody);
 
         echo json_encode([
             'data' => [
-                'message' => $response ? 'Usuário Cadastrado' : 'Usuário já existe',
-                'success' => $response
+                'message' => 'Usuário Cadastrado',
             ]
-            ]);
+        ]);
     }
 
     public function authenticate()
     {
         $requestBody = json_decode(file_get_contents("php://input"), true);
-        $token = $this->userService->store($requestBody);
+
+        if (!$requestBody['password'] or !$requestBody['username']) {
+            throw new \Exception("Os campos 'email' e 'senha' são obrigatórios", 400);
+        }
+
+        $token = $this->userService->authenticate($requestBody);
     }
 }

@@ -19,6 +19,7 @@ Router::get('/', [HomeController::class, 'index']);
 
 Router::group(['prefix' => '/api'], function () {
     Router::post('/register', [UserController::class, 'store']);
+    Router::post('/auth', [UserController::class, 'authenticate']);
 });
 
 Router::start();

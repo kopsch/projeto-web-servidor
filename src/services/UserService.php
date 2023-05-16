@@ -16,10 +16,10 @@ class UserService
         $user = new User($data['username'], $data['name'], $data['email'], $data['password']);
 
         if ($user->verifyIfUserExists()) {
-            return false;
+            throw new \Exception("Usuário já está cadastrado", 400);
         }
 
-        return true;
+        $user->store();
     }
 
     public function getByUsername(string $username) {
@@ -28,7 +28,13 @@ class UserService
 
     public function authenticate(array $data) {
         $user =$this->getByUsername($data['username']);
+        
+        if (!isset($user)) {
+            throw new \Exception("Usuário não existe", 400);
+        }
 
-        var_dump($user);
+        if (password_verify($data['password'], $user[0]['password'])) {
+            return true;
+        }
     }
 }
