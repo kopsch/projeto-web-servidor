@@ -1,8 +1,7 @@
 <?php
 
 namespace Src\Services;
-use PDO;
-use Ramsey\Uuid\Uuid;
+use Firebase\JWT\JWT;
 use Src\Models\User;
 
 class UserService
@@ -29,12 +28,20 @@ class UserService
     public function authenticate(array $data) {
         $user =$this->getByUsername($data['username']);
         
-        if (!isset($user)) {
+        if (!$user) {
             throw new \Exception("Usuário não existe", 400);
         }
 
-        if (password_verify($data['password'], $user[0]['password'])) {
-            return true;
+        if (!password_verify($data['password'], $user[0]['password'])) {
+            throw new \Exception("O usuário ou senha são inválidos", 400);
         }
+
+        $payload = [
+            'username' => $user[0]['username']
+        ];
+
+        return [
+            'token' => JWT::encode($payload, $_ENV['JWT_KEY'], "HS256")
+        ];
     }
 }

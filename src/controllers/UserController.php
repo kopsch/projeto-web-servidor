@@ -39,5 +39,9 @@ class UserController
         }
 
         $token = $this->userService->authenticate($requestBody);
+
+        return json_encode([
+            'data' => $token
+        ]);
     }
 }
