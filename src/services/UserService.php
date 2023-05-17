@@ -2,6 +2,8 @@
 
 namespace Src\Services;
 use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+use Pecee\SimpleRouter\Exceptions\HttpException;
 use Src\Models\User;
 
 class UserService
@@ -43,5 +45,23 @@ class UserService
         return [
             'token' => JWT::encode($payload, $_ENV['JWT_KEY'], "HS256")
         ];
+    }
+
+    public function getAuthenticatedUser() {
+        $headers = $_SERVER['HTTP_AUTHORIZATION'];
+        
+        $jwt = isset($headers) ? str_replace('Bearer ', '', $headers) : '';
+
+        if (!$jwt) {
+            throw new HttpException('Usuário não está logado', 403);
+        }
+
+        $decoded = JWT::decode($jwt, new Key($_ENV['JWT_KEY'], 'HS256'));
+
+        $username = $decoded->username ?? '';
+
+        $user = User::getByUsername($username);
+
+        return $user;
     }
 }

@@ -9,9 +9,9 @@ use Src\Config\DatabaseConnector;
 
 class User
 {
-    private string $username;
-    private string $name;
-    private string $email;
+    public string $username;
+    public string $name;
+    public string $email;
     private string $passwordToHash;
     private static $connection;
     
@@ -72,7 +72,9 @@ class User
             $statement->execute(['username' => $username]);
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-            return $result;
+            $user = new User($result[0]['username'], $result[0]['name'], $result[0]['email'], $result[0]['password']);
+
+            return $user;
         } catch (PDOException $e) {
             exit($e->getMessage());
         }

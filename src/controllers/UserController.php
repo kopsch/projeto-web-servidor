@@ -2,6 +2,7 @@
 
 namespace Src\Controllers;
 
+use Pecee\Http\Request;
 use Src\Services\UserService;
 
 class UserController
@@ -42,6 +43,15 @@ class UserController
 
         return json_encode([
             'data' => $token
+        ]);
+    }
+
+    public function getAuthenticatedUser()
+    {
+        $user = $this->userService->getAuthenticatedUser();
+
+        return json_encode([
+            'data' => $user
         ]);
     }
 }

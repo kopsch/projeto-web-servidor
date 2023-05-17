@@ -7,4 +7,9 @@ class HomeController
     {
         return Controller::view('home');
     }
+
+    public function profile()
+    {
+        return Controller::view('profile');
+    }
 }
