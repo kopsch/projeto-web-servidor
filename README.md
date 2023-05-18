@@ -20,7 +20,12 @@
 2. Renomeie a pasta extraída para "projeto-web-servidor".
 3. Abra um terminal ou prompt de comando e navegue até a pasta do projeto: cd /caminho/do/projeto-web-servidor.
 4. Execute o comando composer install para instalar as dependências do projeto.
-5. Inicie o servidor Apache no painel de controle do XAMPP.
+5. Inicie o servidor com o comando php -S localhost:8005 -t public.
+6. Inicie o MySQL também no painel de controle do XAMPP.
+7. Crie um arquivo .env no diretório projeto-web-servidor.
+8. Popule o arquivo .env baseado no .env.exemple com as devidas informações de conexão do banco.
+9. Instale a biblioteca phinx via composer com o seguinte comando: php composer.phar require robmorgan/phinx
+8. Faça as devidas migrations com o comando phinx migrate ou ./vendor/bin/phinx migrate
 6. Abra seu navegador e acesse "http://localhost/projeto-web-servidor".
 
 ### Pronto! Agora você pode começar a usar o projeto Web-Servidor.
