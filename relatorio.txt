@@ -4,9 +4,9 @@
 3. Matheus José Vieira dos Santos    
 
 #Atividades desenvolvildas:
-    Gustavo: desenvolvimento da parte php mais relacionados as views junto com html/css e testar as funcionalidades em outro ambiente, participação da  documetação do código  .
-    Pedro:  desenvolvimento da parte php, teste de funcionalidades e junção do php junto ao html/css, participação da  documetação do código 
-    Matheus: desenvolvimento junto a parte do php, participação da  documetação do código.
+    Gustavo: desenvolvimento da parte php mais relacionados as views junto com html/css e testar as funcionalidades em outro ambiente, participação da  documetação do código.
+    Pedro:  desenvolvimento da parte php, teste de funcionalidades e junção do php junto ao html/css, participação da  documetação do código, e modelagem do banco. 
+    Matheus: desenvolvimento junto a parte do php, participação da  documetação do código, e implementação do banco.
 
 # Peculiaridades: 
     - Não foi possivel importar o css de outra pasta, sendo assim foi necessario usar o css junto ao html.
