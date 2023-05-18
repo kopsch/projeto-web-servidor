@@ -112,16 +112,43 @@
             color: #333;
             margin: 5px 0;
         }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+        }
+
+        #logo {
+            max-width: 70px;
+            max-height: 100px;
+            display: inline-block;
+            margin-left: 5px;
+        }
+
+        #logo img {
+            max-width: 100%;
+            max-height: 100%;
+        }
     </style>
 
 </head>
 
 <body>
     <header>
-        <h1>Carrinho de Compras</h1>
-        <div class="options">
+        <div class="flex">
+            <div id="logo">
+                <img src="https://i.imgur.com/bTybNbv.png" alt="">
+            </div>
+            <h2>Carrinho de Compras</h2>
+        </div>
+        <div class="options flex">
             <ul>
-                <li><a href="/">Guitarras</a></li>
+                <li><a href="/">Home</a></li>
             </ul>
         </div>
     </header>

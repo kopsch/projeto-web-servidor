@@ -33,6 +33,11 @@ class UserService
         return $user;
     }
 
+    public function edit(array $data)
+    {
+        return User::edit($data['password'], $data['name'], $data['email']);
+    }
+
     public function getByUsername(string $username) {
         return User::getByUsername($username);
     }

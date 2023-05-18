@@ -42,4 +42,34 @@ class ViewController
     {
         require __DIR__ . '/../views/finalizedPayment/finalizedPayment.php';
     }
+
+    public function guitar1()
+    {
+        require __DIR__ . '/../views/guitars/guitar1.php';
+    }
+
+    public function guitar2()
+    {
+        require __DIR__ . '/../views/guitars/guitar2.php';
+    }
+
+    public function guitar3()
+    {
+        require __DIR__ . '/../views/guitars/guitar3.php';
+    }
+
+    public function guitar4()
+    {
+        require __DIR__ . '/../views/guitars/guitar4.php';
+    }
+
+    public function guitar5()
+    {
+        require __DIR__ . '/../views/guitars/guitar5.php';
+    }
+
+    public function guitar6()
+    {
+        require __DIR__ . '/../views/guitars/guitar6.php';
+    }
 }

@@ -286,20 +286,22 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+        }
     </style>
 </head>
 
 <body>
     <header>
         <div id="logo">
-            <img src="/front-end/imagens/logo.png" alt="">
-        </div>
-        <div class="header_h1" id="title">
-            <h1>Guitar Kitty</h1>
+            <img src="https://i.imgur.com/bTybNbv.png" alt="">
         </div>
         <div class="options">
             <ul>
-                <li><a href="/">Guitarras</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="/cart">Carrinho</a><span id="quantity-cart"></span></li>
                 <?php
                 use Src\Controllers\UserController;
@@ -311,7 +313,7 @@
                     echo '<li class="dropdown">';
                     echo '<button onclick="toggleDropdown()" class="dropbtn">Olá, ' . $username . '</button>';
                     echo '<div id="myDropdown" class="dropdown-content">';
-                    echo '<a href="/edit">Editar</a>';
+                    echo '<a href="/user/edit">Editar</a>';
                     echo '<a href="/api/logout">Logout</a>';
                     echo '</div>';
                     echo '</li>';
@@ -342,44 +344,50 @@
             {
                 'id': 1,
                 'name': 'Guitarra Golden GLD-155C BRB',
-                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at.',
+                'description': ' Esta guitarra curta de alta qualidade apresenta um corpo sólido em mogno com acabamento em sunburst. Seu braço em maple proporciona conforto e agilidade ao tocar, enquanto os captadores de bobina única fornecem um som brilhante e articulado.',
                 'urlImage': 'https://www.musitechinstrumentos.com.br/files/pro_32643_g.jpg',
-                'price': 1999.99
+                'price': 1999.99,
+                'page': '/guitars/guitar1'
             },
             {
                 'id': 2,
                 'name': 'Guitarra Squier Bullet Stratocaster HT',
-                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at.',
+                'description': ' Projetada para os amantes de metal, esta guitarra curta possui um design agressivo e moderno. Com um corpo em basswood, braço em maple e uma ponte flutuante de duplo bloqueio, oferece um som poderoso e versátil.',
                 'urlImage': 'https://x5music.vteximg.com.br/arquivos/ids/196573-547-547/GUITARRA-SUHR-01-SIG-0014-SIGNATURE-MATEUS-ASATO-CLASSIC-S-BLACK-OFF.jpg?v=637686941808100000',
-                'price': 1549.99
+                'price': 1549.99,
+                'page': '/guitars/guitar2'
             },
             {
                 'id': 3,
                 'name': 'Guitarra Fender Squier Hello Kitty',
-                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at.',
+                'description': 'Uma guitarra acústica curta perfeita para viagens e performances intimistas. Apresenta um corpo compacto em mogno com tampo em abeto, proporcionando um som rico e ressonante. ',
                 'urlImage': 'https://images-americanas.b2w.io/produtos/2665882360/imagens/guitarra-fender-squier-strato-hello-kitty-rosa-mostruario/2665882360_1_xlarge.jpg',
-                'price': 9379.99
+                'price': 9379.99,
+                'page': '/guitars/guitar3'
             },
             {
                 'id': 4,
                 'name': 'Guitarra Marmor GLD-155C BRB',
-                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at.',
+                'description': ' Inspirada nos clássicos dos anos 60, esta guitarra curta possui um visual retrô com acabamento em fiesta red e escudo perolado. Seu corpo em alder oferece um timbre equilibrado e caloroso, enquanto os captadores single-coil vintage fornecem o clássico som twangy.',
                 'urlImage': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkT02Y6-kw86i4D5S9FwcHe5b-Vo9b0ePpCg&usqp=CAU',
-                'price': 1711.99
+                'price': 1711.99,
+                'page': '/guitars/guitar4'
             },
             {
                 'id': 5,
                 'name': 'GUITARRA KLASS STRATOCASTER ST SB Sunburst',
-                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at.',
+                'description': ' Para os baixistas que preferem um formato compacto, esta guitarra curta apresenta o icônico design Thunderbird em tamanho reduzido. Com um corpo em mogno e um braço em maple, proporciona um som encorpado e potente.',
                 'urlImage': 'https://www.megadisconildo.com.br/wp-content/uploads/2023/01/6e6f8be5e8b0c6b9f6bf18625e239399.png',
-                'price': 2711.99
+                'price': 2711.99,
+                'page': '/guitars/guitar5'
             },
             {
                 'id': 6,
                 'name': 'Guitarra Preta EG 810 BK',
-                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at.',
+                'description': ' Esta guitarra eletroacústica curta é perfeita para músicos que desejam tocar e gravar em qualquer lugar. Possui um corpo compacto em koa, tampo sólido em spruce e eletrônica embutida.',
                 'urlImage': 'https://ninjasom.vteximg.com.br/arquivos/ids/175470-1200-1200/Guitarra-Preta-EG-810-BK---Maclend.jpg?v=637578074149700000',
-                'price': 3711.99
+                'price': 3711.99,
+                'page': '/guitars/guitar6'
             },
         ]
 
@@ -395,7 +403,7 @@
                     <img src="${product.urlImage}"
                     alt="Item ${product.id}">
                 </div>
-                <h3>${product.name}</h3>
+                <h3><a href=${product.page} style="cursor: pointer; text-decoration: none; color: #333;">${product.name}</a></h3>
                 <p>R$ ${product.price}</p>
                 <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Adicionar ao Carrinho</button>
                 `;

@@ -32,12 +32,22 @@ Router::group(['middleware' => JWTAuth::class], function() {
 Router::group(['prefix' => '/api', 'middleware' => JWTAuth::class], function() {
     Router::get('/users/me', [UserController::class, 'getAuthenticatedUser']);
     Router::get('/logout', [UserController::class, 'logout']);
-    Router::get('/users/edit', [UserController::class, 'updateUser']);
+    Router::get('/user/edit', [UserController::class, 'edit']);
 });
 
 Router::group(['prefix' => '/api'], function () {
     Router::post('/register', [UserController::class, 'store']);
     Router::post('/auth', [UserController::class, 'authenticate']);
+});
+
+Router::group(['prefix' => '/guitars'], function () {
+    Router::get('/guitar1', [ViewController::class, 'guitar1']);
+    Router::get('/guitar2', [ViewController::class, 'guitar2']);
+    Router::get('/guitar3', [ViewController::class, 'guitar3']);
+    Router::get('/guitar4', [ViewController::class, 'guitar4']);
+    Router::get('/guitar5', [ViewController::class, 'guitar5']);
+    Router::get('/guitar6', [ViewController::class, 'guitar6']);
+
 });
 
 Router::start();

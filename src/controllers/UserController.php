@@ -35,6 +35,13 @@ class UserController
         header('Location: /');
     }
 
+    public function edit()
+    {
+        $user = $this->userService->edit($_POST);
+
+        header('Location: /');
+    }
+
     public function authenticate()
     {
         if (!$_POST['password'] or !$_POST['username']) {
@@ -69,7 +76,7 @@ class UserController
     public function logout()
     {
         $this->userService->logout();
-        
+
         header('Location: /');
     }
 }

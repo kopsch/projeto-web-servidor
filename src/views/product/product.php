@@ -123,7 +123,7 @@
 <body>
   <header>
     <div id="logo">
-      <img src="/front-end/imagens/logo.png" alt="" />
+      <img src="https://i.imgur.com/bTybNbv.png" alt="" />
     </div>
     <div class="header_h1" id="title">
       <h1>Guitar Kitty</h1>

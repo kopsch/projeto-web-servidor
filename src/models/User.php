@@ -6,6 +6,7 @@ use PDO;
 use PDOException;
 use Ramsey\Uuid\Uuid;
 use Src\Config\DatabaseConnector;
+use Src\Controllers\UserController;
 
 class User
 {
@@ -75,6 +76,36 @@ class User
             $user = new User($result[0]['username'], $result[0]['name'], $result[0]['email'], $result[0]['password']);
 
             return $user;
+        } catch (PDOException $e) {
+            exit($e->getMessage());
+        }
+    }
+
+    public static function edit(string $password, string $name = '', string $email = '')
+    {
+        $user = json_decode((new UserController)->getAuthenticatedUser(), 1);
+        $username = $user['data']['username'];
+        self::$connection = (new DatabaseConnector())->getConnection();
+
+        $statement = "
+            UPDATE 
+                users 
+            SET
+                name = :name,
+                email = :email
+            WHERE
+                username LIKE :username
+        ";
+
+        try {
+            $statement = self::$connection->prepare($statement);
+            $statement->execute([
+                'username' => $username,
+                'name' => $name,
+                'email' => $email
+            ]);
+
+            return $statement->rowCount();
         } catch (PDOException $e) {
             exit($e->getMessage());
         }
