@@ -17,10 +17,21 @@ class UserService
         $user = new User($data['username'], $data['name'], $data['email'], $data['password']);
 
         if ($user->verifyIfUserExists()) {
-            throw new \Exception("Usuário já está cadastrado", 400);
+            http_response_code(400);
+            header('Content-Type: application/json');
+            
+            $response = array(
+                'error' => "E-mail ou nome de usuário já está cadastrado",
+                'status' => 400
+            );
+            
+            echo json_encode($response);
+            exit();
         }
 
         $user->store();
+
+        return $user;
     }
 
     public function getByUsername(string $username) {
@@ -31,30 +42,45 @@ class UserService
         $user =$this->getByUsername($data['username']);
         
         if (!$user) {
-            throw new \Exception("Usuário não existe", 400);
+            http_response_code(400);
+            header('Content-Type: application/json');
+            
+            $response = array(
+                'error' => "O usuário não existe",
+                'status' => 400
+            );
+            
+            echo json_encode($response);
+            exit();
         }
 
-        if (!password_verify($data['password'], $user[0]['password'])) {
-            throw new \Exception("O usuário ou senha são inválidos", 400);
+        if (!password_verify($data['password'], $user->passwordToHash)) {
+            http_response_code(400);
+            header('Content-Type: application/json');
+            
+            $response = array(
+                'error' => "O usuário ou senha são inválidos",
+                'status' => 400
+            );
+            
+            echo json_encode($response);
+            exit();
         }
 
         $payload = [
-            'username' => $user[0]['username']
+            'username' => $user->username
         ];
 
+        $jwtToken = JWT::encode($payload, $_ENV['JWT_KEY'], "HS256");
+        setcookie('project_token', $jwtToken, time() + 86400, '/');
+
         return [
-            'token' => JWT::encode($payload, $_ENV['JWT_KEY'], "HS256")
+            'token' => $jwtToken
         ];
     }
 
     public function getAuthenticatedUser() {
-        $headers = $_SERVER['HTTP_AUTHORIZATION'];
-        
-        $jwt = isset($headers) ? str_replace('Bearer ', '', $headers) : '';
-
-        if (!$jwt) {
-            throw new HttpException('Usuário não está logado', 403);
-        }
+        $jwt = $_COOKIE['project_token'];
 
         $decoded = JWT::decode($jwt, new Key($_ENV['JWT_KEY'], 'HS256'));
 

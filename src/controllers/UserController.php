@@ -16,39 +16,50 @@ class UserController
 
     public function store()
     {
-        $requestBody = json_decode(file_get_contents("php://input"), true);
 
-        if (!$requestBody['password'] or !$requestBody['username'] or !$requestBody['name'] or !$requestBody['email']) {
-            throw new \Exception("Todos os campos são obrigatórios", 400);
+        if (!$_POST['password'] or !$_POST['username'] or !$_POST['name'] or !$_POST['email']) {
+            http_response_code(400);
+            header('Content-Type: application/json');
+            
+            $response = array(
+                'error' => "Todos os campos são obrigatórios",
+                'status' => 400
+            );
+            
+            echo json_encode($response);
+            exit();
         }
 
-        $this->userService->store($requestBody);
+        $user = $this->userService->store($_POST);
 
-        echo json_encode([
-            'data' => [
-                'message' => 'Usuário Cadastrado',
-            ]
-        ]);
+        header('Location: /');
     }
 
     public function authenticate()
     {
-        $requestBody = json_decode(file_get_contents("php://input"), true);
-
-        if (!$requestBody['password'] or !$requestBody['username']) {
-            throw new \Exception("Os campos 'email' e 'senha' são obrigatórios", 400);
+        if (!$_POST['password'] or !$_POST['username']) {
+            http_response_code(400);
+            header('Content-Type: application/json');
+            
+            $response = array(
+                'error' => "Os campos 'email' e 'senha' são obrigatórios",
+                'status' => 400
+            );
+            
+            echo json_encode($response);
+            exit();
         }
 
-        $token = $this->userService->authenticate($requestBody);
+        $token = $this->userService->authenticate($_POST);
 
-        return json_encode([
-            'data' => $token
-        ]);
+        header('Location: /');
     }
 
     public function getAuthenticatedUser()
     {
         $user = $this->userService->getAuthenticatedUser();
+
+        http_response_code(200);
 
         return json_encode([
             'data' => $user

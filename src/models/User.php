@@ -12,7 +12,7 @@ class User
     public string $username;
     public string $name;
     public string $email;
-    private string $passwordToHash;
+    public string $passwordToHash;
     private static $connection;
     
 
