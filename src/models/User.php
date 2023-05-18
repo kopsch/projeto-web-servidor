@@ -94,7 +94,7 @@ class User
                 name = :name,
                 email = :email
             WHERE
-                username LIKE :username
+                username = :username;
         ";
 
         try {

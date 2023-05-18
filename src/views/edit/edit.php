@@ -69,13 +69,13 @@
         <form action="/api/user/edit" method="POST">
             <h2>Editar Usuário</h2>
             <label for="name">Nome:</label>
-            <input for="name" id="text" name="name" required>
+            <input for="name" id="text" name="name">
 
             <label for="email">Email:</label>
-            <input for="email" id="text" name="email" required>
+            <input for="email" id="text" name="email">
 
             <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password">
 
             <button type="submit">Salvar</button>
         </form>
