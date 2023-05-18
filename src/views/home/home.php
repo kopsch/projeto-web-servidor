@@ -337,58 +337,47 @@
         &copy; 2023 Minha Loja Online;
     </footer>
 
-    <div class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="product-picture" />
-            <h2 id="product-name"></h2>
-            <p id="product-description"></p>
-            <strong id="product-price"></strong>
-            <button id="add-to-cart"></button>
-        </div>
-    </div>
-
     <script>
         const products = [
             {
                 'id': 1,
                 'name': 'Guitarra Golden GLD-155C BRB',
-                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at. Nullam posuere turpis sollicitudin magna viverra hendrerit. Vivamus vestibulum nunc ut purus posuere posuere. In non vulputate nulla. Nullam facilisis lacus eget ante sollicitudin, laoreet cursus ligula rhoncus. In consectetur ultricies leo, vitae sodales risus interdum id. Fusce vel ex porttitor, consequat neque ut, aliquet urna. Nullam a erat mollis, hendrerit quam sed, vehicula lorem. Phasellus porttitor vestibulum orci sed placerat. Integer iaculis sagittis ornare. Proin nec eros id mauris placerat tempus sed non diam. Fusce ullamcorper tempus neque. Pellentesque commodo eros nec vestibulum feugiat. Integer laoreet venenatis aliquet.',
+                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at.',
                 'urlImage': 'https://www.musitechinstrumentos.com.br/files/pro_32643_g.jpg',
                 'price': 1999.99
             },
             {
                 'id': 2,
                 'name': 'Guitarra Squier Bullet Stratocaster HT',
-                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at. Nullam posuere turpis sollicitudin magna viverra hendrerit. Vivamus vestibulum nunc ut purus posuere posuere. In non vulputate nulla. Nullam facilisis lacus eget ante sollicitudin, laoreet cursus ligula rhoncus. In consectetur ultricies leo, vitae sodales risus interdum id. Fusce vel ex porttitor, consequat neque ut, aliquet urna. Nullam a erat mollis, hendrerit quam sed, vehicula lorem. Phasellus porttitor vestibulum orci sed placerat. Integer iaculis sagittis ornare. Proin nec eros id mauris placerat tempus sed non diam. Fusce ullamcorper tempus neque. Pellentesque commodo eros nec vestibulum feugiat. Integer laoreet venenatis aliquet.',
+                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at.',
                 'urlImage': 'https://x5music.vteximg.com.br/arquivos/ids/196573-547-547/GUITARRA-SUHR-01-SIG-0014-SIGNATURE-MATEUS-ASATO-CLASSIC-S-BLACK-OFF.jpg?v=637686941808100000',
                 'price': 1549.99
             },
             {
                 'id': 3,
                 'name': 'Guitarra Fender Squier Hello Kitty',
-                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at. Nullam posuere turpis sollicitudin magna viverra hendrerit. Vivamus vestibulum nunc ut purus posuere posuere. In non vulputate nulla. Nullam facilisis lacus eget ante sollicitudin, laoreet cursus ligula rhoncus. In consectetur ultricies leo, vitae sodales risus interdum id. Fusce vel ex porttitor, consequat neque ut, aliquet urna. Nullam a erat mollis, hendrerit quam sed, vehicula lorem. Phasellus porttitor vestibulum orci sed placerat. Integer iaculis sagittis ornare. Proin nec eros id mauris placerat tempus sed non diam. Fusce ullamcorper tempus neque. Pellentesque commodo eros nec vestibulum feugiat. Integer laoreet venenatis aliquet.',
+                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at.',
                 'urlImage': 'https://images-americanas.b2w.io/produtos/2665882360/imagens/guitarra-fender-squier-strato-hello-kitty-rosa-mostruario/2665882360_1_xlarge.jpg',
                 'price': 9379.99
             },
             {
                 'id': 4,
                 'name': 'Guitarra Marmor GLD-155C BRB',
-                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at. Nullam posuere turpis sollicitudin magna viverra hendrerit. Vivamus vestibulum nunc ut purus posuere posuere. In non vulputate nulla. Nullam facilisis lacus eget ante sollicitudin, laoreet cursus ligula rhoncus. In consectetur ultricies leo, vitae sodales risus interdum id. Fusce vel ex porttitor, consequat neque ut, aliquet urna. Nullam a erat mollis, hendrerit quam sed, vehicula lorem. Phasellus porttitor vestibulum orci sed placerat. Integer iaculis sagittis ornare. Proin nec eros id mauris placerat tempus sed non diam. Fusce ullamcorper tempus neque. Pellentesque commodo eros nec vestibulum feugiat. Integer laoreet venenatis aliquet.',
+                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at.',
                 'urlImage': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkT02Y6-kw86i4D5S9FwcHe5b-Vo9b0ePpCg&usqp=CAU',
                 'price': 1711.99
             },
             {
                 'id': 5,
                 'name': 'GUITARRA KLASS STRATOCASTER ST SB Sunburst',
-                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at. Nullam posuere turpis sollicitudin magna viverra hendrerit. Vivamus vestibulum nunc ut purus posuere posuere. In non vulputate nulla. Nullam facilisis lacus eget ante sollicitudin, laoreet cursus ligula rhoncus. In consectetur ultricies leo, vitae sodales risus interdum id. Fusce vel ex porttitor, consequat neque ut, aliquet urna. Nullam a erat mollis, hendrerit quam sed, vehicula lorem. Phasellus porttitor vestibulum orci sed placerat. Integer iaculis sagittis ornare. Proin nec eros id mauris placerat tempus sed non diam. Fusce ullamcorper tempus neque. Pellentesque commodo eros nec vestibulum feugiat. Integer laoreet venenatis aliquet.',
+                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at.',
                 'urlImage': 'https://www.megadisconildo.com.br/wp-content/uploads/2023/01/6e6f8be5e8b0c6b9f6bf18625e239399.png',
                 'price': 2711.99
             },
             {
                 'id': 6,
                 'name': 'Guitarra Preta EG 810 BK',
-                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at. Nullam posuere turpis sollicitudin magna viverra hendrerit. Vivamus vestibulum nunc ut purus posuere posuere. In non vulputate nulla. Nullam facilisis lacus eget ante sollicitudin, laoreet cursus ligula rhoncus. In consectetur ultricies leo, vitae sodales risus interdum id. Fusce vel ex porttitor, consequat neque ut, aliquet urna. Nullam a erat mollis, hendrerit quam sed, vehicula lorem. Phasellus porttitor vestibulum orci sed placerat. Integer iaculis sagittis ornare. Proin nec eros id mauris placerat tempus sed non diam. Fusce ullamcorper tempus neque. Pellentesque commodo eros nec vestibulum feugiat. Integer laoreet venenatis aliquet.',
+                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante metus, consequat nec dignissim eu, hendrerit ut justo. Suspendisse iaculis eleifend arcu. Maecenas mollis laoreet leo, in fermentum odio pellentesque at.',
                 'urlImage': 'https://ninjasom.vteximg.com.br/arquivos/ids/175470-1200-1200/Guitarra-Preta-EG-810-BK---Maclend.jpg?v=637578074149700000',
                 'price': 3711.99
             },
@@ -406,19 +395,12 @@
                     <img src="${product.urlImage}"
                     alt="Item ${product.id}">
                 </div>
-                <h3><a id="button-to-open-modal" style="cursor: pointer;">${product.name}</a></h3>
+                <h3>${product.name}</h3>
                 <p>R$ ${product.price}</p>
                 <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Adicionar ao Carrinho</button>
                 `;
 
-                
-
-                
                 productList.appendChild(productDiv);
-                const buttonToOpenModal = document.getElementById("button-to-open-modal");
-                buttonToOpenModal.addEventListener("click", function () {
-                    showProductPage(product.name, product.description, product.picture, product.price, product.id);
-                });
         }
 
         function addToCart(productId) {
@@ -472,35 +454,6 @@
                 }
             }
         }
-
-        let modal = document.querySelector(".modal");
-
-
-        let closeBtn = document.querySelector(".close");
-
-        function showProductPage(name, description, picture, price, id) {
-            let productName = document.getElementById("product-name");
-            let productDescription = document.getElementById("product-description");
-            let productPicture = document.getElementById("product-picture");
-            let productPrice = document.getElementById("product-price");
-            let buttonCart = document.getElementById("add-to-cart");
-
-            buttonCart.addEventListener("click", function () {
-                addToCart(id);
-            });
-
-            openModal();
-        }
-
-        function openModal() {
-            modal.style.display = "block";
-        }
-
-        function closeModal() {
-            modal.style.display = "none";
-        }
-
-        closeBtn.addEventListener("click", closeModal);
     </script>
 </body>
 

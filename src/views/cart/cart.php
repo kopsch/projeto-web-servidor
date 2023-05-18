@@ -106,6 +106,12 @@
             text-decoration: none;
             text-align: center;
         }
+
+        .cart-item-description {
+            font-size: 12px;
+            color: #333;
+            margin: 5px 0;
+        }
     </style>
 
 </head>
@@ -161,6 +167,7 @@
                 <img src="${cartProduct.urlImage}" alt="Item ${cartProduct.id}">
                 <div class="cart-item-info">
                     <div class="cart-item-name">${cartProduct.name}</div>
+                    <div class="cart-item-description">${cartProduct.description}</div>
                     <div class="cart-item-price">R$ ${cartProduct.price}</div>
                 </div>
                 `;
