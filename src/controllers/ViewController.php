@@ -32,4 +32,14 @@ class ViewController
     {
         require __DIR__ . '/../views/payment/payment.php';
     }
+
+    public function edit()
+    {
+        require __DIR__ . '/../views/edit/edit.php';
+    }
+
+    public function finalizedPayment()
+    {
+        require __DIR__ . '/../views/finalizedPayment/finalizedPayment.php';
+    }
 }

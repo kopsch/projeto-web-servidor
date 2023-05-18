@@ -66,6 +66,7 @@
         .cart-total {
             font-weight: bold;
             text-align: right;
+            margin-bottom: 5px;
         }
 
         footer {

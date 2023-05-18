@@ -3,7 +3,6 @@
 namespace Src\Services;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
-use Pecee\SimpleRouter\Exceptions\HttpException;
 use Src\Models\User;
 
 class UserService
@@ -89,5 +88,9 @@ class UserService
         $user = User::getByUsername($username);
 
         return $user;
+    }
+
+    public function logout() {
+        setcookie('project_token', $_COOKIE['project_token'], time() - 3600, '/');
     }
 }

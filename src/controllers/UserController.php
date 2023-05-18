@@ -65,4 +65,11 @@ class UserController
             'data' => $user
         ]);
     }
+
+    public function logout()
+    {
+        $this->userService->logout();
+        
+        header('Location: /');
+    }
 }

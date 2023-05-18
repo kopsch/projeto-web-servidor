@@ -106,7 +106,7 @@
   <div class="container">
     <div class="checkout-form">
       <h2>Checkout</h2>
-      <form>
+      <div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="name">Nome:</label>
@@ -133,13 +133,18 @@
           </div>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary">
+          <button type="button" class="btn btn-primary" onclick="goToEndPage()">
             Realizar Pagamento
           </button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
+  <script>
+    const goToEndPage = () => {
+      window.location.href = "/payment-finalized";
+    }
+  </script>
 </body>
 
 </html>

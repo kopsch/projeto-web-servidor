@@ -23,12 +23,16 @@ Router::get('/register', [ViewController::class, 'register']);
 Router::group(['middleware' => JWTAuth::class], function() {
     Router::get('/cart', [ViewController::class, 'cart']);
     Router::get('/payment', [ViewController::class, 'payment']);
+    Router::get('/payment-finalized', [ViewController::class, 'finalizedPayment']);
+    Router::get('/user/edit', [ViewController::class, 'edit']);
 });
 
 
 // ROTAS DE API
 Router::group(['prefix' => '/api', 'middleware' => JWTAuth::class], function() {
     Router::get('/users/me', [UserController::class, 'getAuthenticatedUser']);
+    Router::get('/logout', [UserController::class, 'logout']);
+    Router::get('/users/edit', [UserController::class, 'updateUser']);
 });
 
 Router::group(['prefix' => '/api'], function () {
