@@ -1,18 +1,19 @@
 {
     "name": "kopsch/projeto-web-servidor",
-    "description": "API de autenticação feita para a disciplina de Desenvolvimento Web Servidor da UTFPR-PG",
+    "description": "API com Laravel feita para a disciplina de Desenvolvimento Web Servidor da UTFPR-PG",
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "require": {
         "vlucas/phpdotenv": "^5.5",
-        "robmorgan/phinx": "^0.13.4",
         "ramsey/uuid": "^4.2",
         "firebase/php-jwt": "^6.4",
-        "league/plates": "^3.5",
-        "pecee/simple-router": "5.3.0.5",
         "guzzlehttp/guzzle": "^7.6"
     },
     "autoload": {
         "psr-4": {
-            "Src\\": "src/"
+            "App\\": "app/"
         }
     }
 }
